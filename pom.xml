@@ -1,0 +1,142 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+   <!-- <parent>
+        <groupId>org.kframe</groupId>
+        <artifactId>kframe</artifactId>
+        <version>23</version>
+    </parent>-->
+
+    <groupId>org.kframe.boot</groupId>
+    <artifactId>kboot-parent</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>The parent project of dubbo</description>
+    <url>https://github.com/kunge2013/kboot.git</url>
+    <inceptionYear>2013</inceptionYear>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
+    <developers>
+        <developer>
+            <id>kboot.io</id>
+            <name>The kboot Project Contributors</name>
+            <email>kun_ja@163.com</email>
+            <url>https://kunge2013.github.io</url>
+        </developer>
+    </developers>
+
+
+    <issueManagement>
+        <system>Github Issues</system>
+        <url>https://github.com/kunge2013/kbot/issues</url>
+    </issueManagement>
+
+    <properties>
+        <!-- Test libs -->
+        <junit_jupiter_version>5.6.0</junit_jupiter_version>
+        <hazelcast_version>3.11.1</hazelcast_version>
+        <hamcrest_version>1.3</hamcrest_version>
+        <hibernate_validator_version>5.2.4.Final</hibernate_validator_version>
+        <el_api_version>2.2.4</el_api_version>
+        <jaxb_api_version>2.2.7</jaxb_api_version>
+        <cglib_version>2.2</cglib_version>
+        <mockito_version>2.23.4</mockito_version>
+        <!-- Build args -->
+        <argline>-server -Xms256m -Xmx512m -Dfile.encoding=UTF-8
+            -Djava.net.preferIPv4Stack=true -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m
+        </argline>
+        <skip_maven_deploy>false</skip_maven_deploy>
+        <updateReleaseInfo>true</updateReleaseInfo>
+        <project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
+        <project.build.outputTimestamp>2020-04-01T08:04:00Z</project.build.outputTimestamp>
+
+        <profile.name>oss</profile.name>
+        <!-- for maven compiler plugin -->
+        <java_source_version>1.8</java_source_version>
+        <java_target_version>1.8</java_target_version>
+        <file_encoding>UTF-8</file_encoding>
+        <!-- Maven plugins -->
+        <maven_jar_version>3.2.0</maven_jar_version>
+        <maven_surefire_version>2.22.1</maven_surefire_version>
+        <maven_deploy_version>2.8.2</maven_deploy_version>
+        <maven_compiler_version>3.6.0</maven_compiler_version>
+        <maven_source_version>3.2.1</maven_source_version>
+        <maven_javadoc_version>3.0.1</maven_javadoc_version>
+        <maven_jetty_version>9.4.11.v20180605</maven_jetty_version>
+        <maven_checkstyle_version>3.0.0</maven_checkstyle_version>
+        <maven_jacoco_version>0.8.2</maven_jacoco_version>
+        <maven_flatten_version>1.1.0</maven_flatten_version>
+        <maven_enforce_version>3.0.0-M2</maven_enforce_version>
+        <apache-rat-plugin.version>0.12</apache-rat-plugin.version>
+        <arguments />
+        <checkstyle.skip>true</checkstyle.skip>
+        <rat.skip>true</rat.skip>
+        <revision>2.7.7-SNAPSHOT</revision>
+    </properties>
+
+    <modules>
+        <module>kboot-common</module>
+        <module>kboot-http</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit_jupiter_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit_jupiter_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>${hamcrest_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${cglib_version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+  
+</project>
