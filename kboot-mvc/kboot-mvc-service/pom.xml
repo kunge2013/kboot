@@ -36,6 +36,11 @@
     </properties>
     <dependencies>
 
+        <dependency>
+            <groupId>org.kframe.boot</groupId>
+            <artifactId>kboot-mvc-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 
     <repositories>

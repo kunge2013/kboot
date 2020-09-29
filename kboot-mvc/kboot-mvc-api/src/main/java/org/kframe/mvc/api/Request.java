@@ -5,6 +5,6 @@ package org.kframe.mvc.api;
  * @date 2020/9/29 14:46
  * @description: 请求
  */
-public abstract class Request {
+public abstract class Request extends Response {
 
 }
