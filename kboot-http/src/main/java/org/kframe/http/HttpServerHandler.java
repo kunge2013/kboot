@@ -42,27 +42,7 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
         if (msg instanceof HttpRequest) {
             HttpRequest req = (HttpRequest) msg;
             DISPATCHER.createReq(ctx, req);
-            boolean keepAlive = HttpUtil.isKeepAlive(req);
-            FullHttpResponse response = new DefaultFullHttpResponse(req.protocolVersion(), OK,
-                                                                    Unpooled.wrappedBuffer(CONTENT));
-            response.headers()
-                    .set(CONTENT_TYPE, TEXT_PLAIN)
-                    .setInt(CONTENT_LENGTH, response.content().readableBytes());
 
-            if (keepAlive) {
-                if (!req.protocolVersion().isKeepAliveDefault()) {
-                    response.headers().set(CONNECTION, KEEP_ALIVE);
-                }
-            } else {
-                // Tell the client we're going to close the connection.
-                response.headers().set(CONNECTION, CLOSE);
-            }
-
-            ChannelFuture f = ctx.write(response);
-
-            if (!keepAlive) {
-                f.addListener(ChannelFutureListener.CLOSE);
-            }
         }
     }
 

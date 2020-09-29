@@ -1,5 +1,8 @@
 package org.kframe.http;
 
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.HttpHeaders;
+
 import java.net.HttpCookie;
 
 /**
@@ -7,7 +10,7 @@ import java.net.HttpCookie;
  * @date 2020/9/29 14:46
  * @description: 请求
  */
-public  class Request<T> {
+public  class Request {
 
     /**
      * POSt GET
@@ -67,8 +70,20 @@ public  class Request<T> {
     /**
      * 连接对象
      */
-    protected  T channel;
+    protected  ChannelHandlerContext channel;
 
+    /**
+     * 请求头
+     */
+    private HttpHeaders headers;
+
+    public HttpHeaders getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(HttpHeaders headers) {
+        this.headers = headers;
+    }
 
     public String getMethod() {
         return method;
@@ -158,15 +173,15 @@ public  class Request<T> {
         this.newsessionid = newsessionid;
     }
 
-    public T getChannel() {
+    public ChannelHandlerContext getChannel() {
         return channel;
     }
 
-    public void setChannel(T channel) {
+    public void setChannel(ChannelHandlerContext channel) {
         this.channel = channel;
     }
 
-    public Request(T channel) {
+    public Request(ChannelHandlerContext channel) {
         this.channel = channel;
     }
 
