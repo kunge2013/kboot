@@ -1,3 +1,8 @@
 /kboot-http/kboot-http.iml
 /kboot-common/kboot-common.iml
 /boot-parent.iml
+/kboot-mvc/kboot-mvc-api/target/
+/kboot-mvc/kboot-mvc-api/kboot-mvc-api.iml
+/kboot-mvc/kboot-mvc-service/target/
+/kboot-mvc/kboot-mvc-service/kboot-mvc-service.iml
+/kboot-mvc/kboot-mvc-service/kboot-http.iml
