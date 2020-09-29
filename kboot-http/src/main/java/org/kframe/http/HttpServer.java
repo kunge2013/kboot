@@ -14,30 +14,21 @@ import java.net.InetSocketAddress;
  * @date 2020/9/29 11:40
  * @description: httpserver 配置
  */
-public class HttpServer extends Server {
+public class HttpServer {
 
     static final boolean SSL = System.getProperty("ssl") != null;
     static final int PORT = Integer.parseInt(System.getProperty("port", SSL? "8443" : "8080"));
 
     int port ;
 
-    Creator<Request> requestCreator = null;
 
-    public HttpServer(int port){
+    public HttpServer(int port) {
         this.port = port;
-        this.requestCreator = new Creator<Request>() {
-            @Override
-            public Request create(Object... params) {
-                final Request request = new Request();
-                request.setChannel(params);
-                return request;
-            }
-        };
+
     }
 
     public HttpServer(int port, Creator<Request> requestCreator) {
         this.port = port;
-        this.requestCreator = requestCreator;
     }
 
     public void start() throws Exception{
@@ -58,10 +49,5 @@ public class HttpServer extends Server {
 
     public static void main(String[] args) throws Exception {
         new HttpServer(8888).start();
-    }
-
-    @Override
-    protected Request createReq(ChannelHandlerContext channelContext) {
-        return requestCreator.create(channelContext);
     }
 }

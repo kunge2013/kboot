@@ -29,6 +29,8 @@ import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 
 public class HttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     private static final byte[] CONTENT = { 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd' };
+    /*逻辑跳转处理器*/
+    private final DispatcherServlet DISPATCHER = HttpDispatcherServlet.getInstance();
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
@@ -39,7 +41,7 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     public void channelRead0(ChannelHandlerContext ctx, HttpObject msg) {
         if (msg instanceof HttpRequest) {
             HttpRequest req = (HttpRequest) msg;
-
+            DISPATCHER.createReq(ctx, req);
             boolean keepAlive = HttpUtil.isKeepAlive(req);
             FullHttpResponse response = new DefaultFullHttpResponse(req.protocolVersion(), OK,
                                                                     Unpooled.wrappedBuffer(CONTENT));
