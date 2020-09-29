@@ -21,8 +21,23 @@ public class HttpServer extends Server {
 
     int port ;
 
+    Creator<Request> requestCreator = null;
+
     public HttpServer(int port){
         this.port = port;
+        this.requestCreator = new Creator<Request>() {
+            @Override
+            public Request create(Object... params) {
+                final Request request = new Request();
+                request.setChannel(params);
+                return request;
+            }
+        };
+    }
+
+    public HttpServer(int port, Creator<Request> requestCreator) {
+        this.port = port;
+        this.requestCreator = requestCreator;
     }
 
     public void start() throws Exception{
@@ -32,7 +47,7 @@ public class HttpServer extends Server {
         bootstrap.group(boss,work)
                 .handler(new LoggingHandler(LogLevel.DEBUG))
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new HttpHelloWorldServerInitializer(null));
+                .childHandler(new HttpServerInitializer(null));
 
         ChannelFuture f = bootstrap.bind(new InetSocketAddress(port)).sync();
         System.out.println(" server start up on port : " + port);
@@ -43,5 +58,10 @@ public class HttpServer extends Server {
 
     public static void main(String[] args) throws Exception {
         new HttpServer(8888).start();
+    }
+
+    @Override
+    protected Request createReq(ChannelHandlerContext channelContext) {
+        return requestCreator.create(channelContext);
     }
 }

@@ -22,11 +22,11 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.HttpServerExpectContinueHandler;
 import io.netty.handler.ssl.SslContext;
 
-public class HttpHelloWorldServerInitializer extends ChannelInitializer<SocketChannel> {
+public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 
     private final SslContext sslCtx;
 
-    public HttpHelloWorldServerInitializer(SslContext sslCtx) {
+    public HttpServerInitializer(SslContext sslCtx) {
         this.sslCtx = sslCtx;
     }
 
@@ -38,6 +38,6 @@ public class HttpHelloWorldServerInitializer extends ChannelInitializer<SocketCh
         }
         p.addLast(new HttpServerCodec());
         p.addLast(new HttpServerExpectContinueHandler());
-        p.addLast(new HttpHelloWorldServerHandler());
+        p.addLast(new HttpServerHandler());
     }
 }
