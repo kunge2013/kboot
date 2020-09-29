@@ -29,11 +29,111 @@
     <description>The http module of kboot project</description>
     <properties>
         <skip_maven_deploy>false</skip_maven_deploy>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-
-
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-codec-http -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+           <groupId>io.netty</groupId>
+            <artifactId>netty-common</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+           <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+           <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+           <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+           <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+           <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http</artifactId>
+            <version>5.0.0.Alpha2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.50.Final</version>
+        </dependency>
     </dependencies>
+
+
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+            <!-- 指定jdk -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <skip>true</skip>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <!-- 跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <skip>true</skip>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <profiles>
         <profile>
