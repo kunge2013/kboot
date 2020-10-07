@@ -14,7 +14,7 @@ public  class HttpRequestFactory  {
      * 创建 请求 创建器
      * @return
      */
-    protected  Creator<Request> createRequestCreator() {
+    protected Creator<Request> createRequestCreator() {
         return null;
     }
 
