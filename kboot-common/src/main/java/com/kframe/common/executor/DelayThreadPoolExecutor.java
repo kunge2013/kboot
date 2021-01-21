@@ -1,4 +1,4 @@
-package com.kframe.common.DelayExecutor;
+package com.kframe.common.executor;
 
 import java.util.concurrent.*;
 
@@ -9,7 +9,7 @@ import java.util.concurrent.*;
  * @href <href>https://kunge2013.github.io</href>
  * @description: 延迟队列线程池实现
  */
-public class DelayThreadPoolExecutor extends ThreadPoolExecutor implements ScheduledExecutorService {
+public class DelayThreadPoolExecutor extends ThreadPoolExecutor implements ScheduledMessageExecutorService {
 
     public DelayThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
@@ -27,20 +27,8 @@ public class DelayThreadPoolExecutor extends ThreadPoolExecutor implements Sched
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
     }
 
-    public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) {
-        return null;
-    }
+    public void scheduledMessage(ScheduledMessage message) {
 
-    public <V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit) {
-        return null;
-    }
-
-    public ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit) {
-        return null;
-    }
-
-    public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit) {
-        return null;
     }
 
 
