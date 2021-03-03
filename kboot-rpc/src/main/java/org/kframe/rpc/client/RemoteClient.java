@@ -8,4 +8,6 @@ package org.kframe.rpc.client;
  */
 public interface RemoteClient {
 
+
+
 }

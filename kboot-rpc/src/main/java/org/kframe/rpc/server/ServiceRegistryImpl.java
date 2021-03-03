@@ -3,6 +3,8 @@ package org.kframe.rpc.server;
 
 import org.kframe.rpc.annotations.RpcService;
 
+import org.kframe.rpc.dto.RpcServerAttribute;
+
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ServiceRegistryImpl implements RpcServiceRegistry {
 
-    private  Map<String, Object> RpcServiceRegistryMap = new ConcurrentHashMap<>();
+    private  Map<String, RpcServerAttribute> RpcServiceRegistryMap = new ConcurrentHashMap<>();
 
     public void registryService(Class service) {
          Object rpcService = service.getAnnotation(RpcService.class);
@@ -23,6 +25,6 @@ public class ServiceRegistryImpl implements RpcServiceRegistry {
              return;
          }
         RpcService rpcServiceInfo = (RpcService) rpcService;
-        RpcServiceRegistryMap.put(rpcServiceInfo.name(), "");
+        RpcServiceRegistryMap.put(rpcServiceInfo.name(), null);
     }
 }
