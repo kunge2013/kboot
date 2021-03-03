@@ -8,16 +8,23 @@ package org.kframe.rpc.server;
  */
 public abstract class AbstractRpcServer implements RpcServer {
 
-    @Override
     public void initService(String... packages) {
 
     }
+
+    public void start() {
+
+    }
+
+
+    public abstract void initServerPort(int port);
 
     @Override
     public void init() {
         try {
             initService();
             initServerPort(8989);
+            start();
         } catch (Exception e) {
             e.printStackTrace();
         }
