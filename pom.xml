@@ -101,6 +101,7 @@
         <module>kboot-actuator</module>
         <module>kboot-mvc</module>
         <module>kboot-rpc</module>
+        <module>kboot-rpc-spring</module>
     </modules>
 
     <dependencies>
