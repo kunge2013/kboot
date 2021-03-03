@@ -99,7 +99,7 @@ public class RpcServerService extends AbstractRpcServer {
     }
 
     @Override
-    public void initServerType(int port) throws IOException {
+    public void initServerPort(int port) throws IOException {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.configureBlocking(false);
         ServerSocket serverSocket = serverSocketChannel.socket();

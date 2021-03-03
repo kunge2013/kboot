@@ -9,7 +9,16 @@ import java.io.IOException;
  * @description:
  */
 public interface Server {
+    /**
+     * 启动监听
+     */
     void startListener();
 
-    void initServerType(int port) throws IOException;
+    /**
+     * 初始化端口
+     * @param port
+     * @throws IOException
+     */
+    void initServerPort(int port) throws IOException;
+
 }

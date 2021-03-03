@@ -17,7 +17,7 @@ public abstract class AbstractRpcServer implements RpcServer {
     public void init() {
         try {
             initService();
-            initServerType(8989);
+            initServerPort(8989);
         } catch (Exception e) {
             e.printStackTrace();
         }
