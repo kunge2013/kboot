@@ -2,8 +2,8 @@ package org.kframe.rpc.client;
 
 import org.kframe.rpc.dto.RpcClientAttribute;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author 玄策
@@ -12,5 +12,5 @@ import java.util.Map;
  * @description:
  */
 public class RemoteClientImpl {
-    private Map<String, RpcClientAttribute> RpcServiceRegistryMap = new HashMap<>();
+    private Map<String, RpcClientAttribute> RpcServiceRegistryMap = new ConcurrentHashMap<>();
 }
