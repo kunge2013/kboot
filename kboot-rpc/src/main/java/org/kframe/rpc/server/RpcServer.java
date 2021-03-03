@@ -8,11 +8,7 @@ import java.io.IOException;
  * @date 2021/3/3 1:36 下午
  * @description:
  */
-public interface RpcServer {
-
-    void startListener();
-
-    void initServerType(int port) throws IOException;
+public interface RpcServer extends Server{
 
     void initService(String... packages);
 
