@@ -100,6 +100,7 @@
         <module>kboot-http</module>
         <module>kboot-actuator</module>
         <module>kboot-mvc</module>
+        <module>kboot-rpc</module>
     </modules>
 
     <dependencies>
