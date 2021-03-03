@@ -17,7 +17,7 @@ import java.util.Iterator;
  * @date 2021/3/3 1:37 下午
  * @description:
  */
-public class RpcServerService extends AbstractRpcServer {
+public class JavaNIORpcServerService extends AbstractRpcServer {
 
 
     private ByteBuffer readBuffer = ByteBuffer.allocateDirect(1024);
