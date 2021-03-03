@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ServiceRegistryImpl implements RpcServiceRegistry {
 
-    private  Map<String, RpcServerAttribute> RpcServiceRegistryMap = new ConcurrentHashMap<>();
+    private  Map<String, RpcServerAttribute> rpcServiceRegistryMap = new ConcurrentHashMap<>();
 
     public void registryService(Class service) {
          Object rpcService = service.getAnnotation(RpcService.class);
@@ -25,6 +25,6 @@ public class ServiceRegistryImpl implements RpcServiceRegistry {
              return;
          }
         RpcService rpcServiceInfo = (RpcService) rpcService;
-        RpcServiceRegistryMap.put(rpcServiceInfo.name(), null);
+        rpcServiceRegistryMap.put(rpcServiceInfo.name(), null);
     }
 }
